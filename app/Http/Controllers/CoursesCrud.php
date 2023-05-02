@@ -7,20 +7,18 @@ use App\Models\Courses;
 
 class CoursesCrud extends Controller
 {
-    
+
     public function index()
     {
         //
         $courses_details = Courses::all();
         return view('pages.add_course',  compact('courses_details'));
-
     }
     public function index2()
     {
         //
         $courses_details = Courses::offset(0)->limit(3)->get();
         return view('index',  compact('courses_details'));
-
     }
 
     /**
@@ -96,48 +94,52 @@ class CoursesCrud extends Controller
     public function update(Request $request, $id)
     {
         //
-    //     $course_data = Courses::where('course_id', $id)->first();;
-    //     // dd($course_data);
-        
+        //     $course_data = Courses::where('course_id', $id)->first();;
+        //     // dd($course_data);
+
 
         $files = $request->file('course_picture');
         $name = $_SERVER['REQUEST_TIME'];
-        $name = $name. "." .$files->getClientOriginalExtension();
+        $name = $name . "." . $files->getClientOriginalExtension();
         $files->move('uploaded_images', $name);
 
 
 
-    //     $course_data->course_title = $request['course_title'];
-    //     $course_data->course_instructor = $request['course_instructor'];
-    //     $course_data->course_price = $request['course_price'];
-    //     $course_data->course_duration = $request['course_duration'];
-    //     $course_data->course_total_students = $request['course_total_students'];
-    //     $course_data->course_picture = $name;
-    //     // $create_course->course_picture = $request['course_picture'];
+        //     $course_data->course_title = $request['course_title'];
+        //     $course_data->course_instructor = $request['course_instructor'];
+        //     $course_data->course_price = $request['course_price'];
+        //     $course_data->course_duration = $request['course_duration'];
+        //     $course_data->course_total_students = $request['course_total_students'];
+        //     $course_data->course_picture = $name;
+        //     // $create_course->course_picture = $request['course_picture'];
 
-    //     // $data = array('course_title'=>$course_data->course_title, "course_instructor"=>$course_data->course_instructor, 'course_price'=>$course_data->course_price, 'course_duration'=>$course_data->course_duration, 'course_total_students'=>$course_data->course_total_students, 'course_picture'=>$name,);
-    //     $course_data->save();
-    //     // if () {
-    //     //     echo ("Records updated");
-    //     // } else {
-    //     //     echo ("not updated");
-    //     // }
-    Courses::where('course_id', $id)->update([
-        [
-            // 'magazine_id'      => $request->input('magazine'),
-            // 'page'             => $request->input('pagename'),
-            // 'page_description' => $request->input('description'),
-            // 'page_number'      => $request->input('pageno'),
-            // 'file'             => $audioName,
-            // 'created_at'       => $date,
-            // 'updated_at'       => $date,
-            // 'user_id'          => 1
+        //     // $data = array('course_title'=>$course_data->course_title, "course_instructor"=>$course_data->course_instructor, 'course_price'=>$course_data->course_price, 'course_duration'=>$course_data->course_duration, 'course_total_students'=>$course_data->course_total_students, 'course_picture'=>$name,);
+        //     $course_data->save();
+        //     // if () {
+        //     //     echo ("Records updated");
+        //     // } else {
+        //     //     echo ("not updated");
+        //     // }
+        Courses::where('course_id', $id)->update(
+            [
+                // 'magazine_id'      => $request->input('magazine'),
+                // 'page'             => $request->input('pagename'),
+                // 'page_description' => $request->input('description'),
+                // 'page_number'      => $request->input('pageno'),
+                // 'file'             => $audioName,
+                // 'created_at'       => $date,
+                // 'updated_at'       => $date,
+                // 'user_id'          => 1
 
-            'course_title'=>$request->course_title, "course_instructor"=>$request->course_instructor, 'course_price'=>$request->course_price,
-             'course_duration'=>$request->course_duration, 'course_total_students'=>$request->course_total_students, 
-            'course_picture'=>$name,
-        ]
-    ]);
+                'course_title' => $request->course_title,
+                "course_instructor" => $request->course_instructor,
+                'course_price' => $request->course_price,
+                'course_duration' => $request->course_duration,
+                'course_total_students' => $request->course_total_students,
+                'course_picture' => $name,
+            
+        ]);
+        // return view('add_course');
     }
 
     /**
@@ -150,12 +152,11 @@ class CoursesCrud extends Controller
     {
         //
         // dd($course_id);
-        $data = Courses::where('course_id',$course_id)->delete();
+        $data = Courses::where('course_id', $course_id)->delete();
         if ($data) {
-           return '1';
+            return '1';
         } else {
             return '0';
         }
-        
     }
 }

@@ -43,9 +43,9 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('pages/login');
 });
-Route::get('/add-course', function () {
-    return view('pages/add_course');
-});
+// Route::get('/add-course', function () {
+//     return view('pages/add_course');
+// });
 Route::get('/add-course', 'CoursesCrud@index');
 Route::post('/add-course', 'CoursesCrud@store')->name('add-course');
 Route::delete('/add-course/{course_id}', 'CoursesCrud@destroy');

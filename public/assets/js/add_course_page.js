@@ -53,12 +53,13 @@ $(document).on("click", ".update_course", function (e) {
         processData: false,
         async: false,
         success: function (response) {
-            alert(response);
+            // alert(response);
             // if (response == '1') {
-            $(btn).load(location.href + btn);
+            // $(btn).load(location.href + btn);
             // }
         },
     });
+    return false;
 });
 
 $("#load_another_form").click(function () {
