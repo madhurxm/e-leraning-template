@@ -365,8 +365,100 @@
             {{-- VIEW FORMS div start --}}
             <div id="edit_course_div" hidden>
                 @foreach ($courses_details as $val)
-                    {{ $val->course_title }}
-                    {{ $val->course_price }}
+                    <form enctype="multipart/form-data">
+
+                        {{-- Fields Start --}}
+                        <div class="row m-4">
+
+                            {{-- Form Column 1 Start --}}
+                            <div class="col m-1">
+                                <div class="mb-3 form-floating">
+
+                                    <input type="text" class="form-control"
+                                        name="course_title" id=""
+                                        placeholder="Course Title"
+                                        value="{{ $val->course_title }}">
+                                    <label for="course_title" class="">Course
+                                        Title</label>
+                                </div>
+
+                                <div class="mb-3 form-floating">
+                                    <input type="text" class="form-control"
+                                        name="course_price" id="" placeholder="Price"
+                                        value="{{ $val->course_price }}">
+                                    <label for="course_price" class="">Price</label>
+                                </div>
+
+                                <div class="mb-3 form-floating">
+                                    <input type="text" class="form-control"
+                                        name="course_total_students" id=""
+                                        placeholder="Registered Students"
+                                        value="{{ $val->course_total_students }}">
+                                    <label for="course_total_students" class="">Registered
+                                        Students</label>
+                                </div>
+                                <div class=" mb-3">
+                                    <img src="{{ URL::asset('uploaded_images/' . $val->course_picture) }}"
+                                        class="img-fluid rounded-top" alt="stored image">
+                                </div>
+                            </div>
+                            {{-- Form Column 1 End --}}
+
+                            {{-- Form Column 2 Start --}}
+                            <div class="col m-1">
+                                <div class="mb-3 form-floating">
+
+                                    <input type="text" class="form-control"
+                                        name="course_instructor" id=""
+                                        placeholder="Instructor"
+                                        value="{{ $val->course_instructor }}">
+                                    <label for="course_instructor"
+                                        class="">Instructor</label>
+                                </div>
+                                <div class="mb-3 form-floating">
+                                    <input type="text" class="form-control"
+                                        name="course_duration" id=""
+                                        placeholder="Course Duration"
+                                        value="{{ $val->course_duration }}">
+                                    <label for="course_duration" class="">Course
+                                        Duration</label>
+                                </div>
+                                
+                                <div class="input-group mb-3">
+                                    <div
+                                        class="form-floating form-floating-group flex-grow-1">
+                                        <input type="file" class="form-control"
+                                            name="course_picture"
+                                            placeholder="course_picture">
+                                        <label for="course_picture">Choose Course
+                                            Picture</label>
+                                    </div>
+                                </div>
+                                
+                                <button type="button" name="" abc="{{ $val->course_id }}"
+                                    class="btn btn-primary rounded-pill text-center m-2 px-4 py-2 delete_course">
+                                    <i class="material-symbols-outlined">delete
+                                    </i>
+                                </button>
+                                <button type="button" name="" abc="{{ $val->course_id }}"
+                                    class="btn btn-primary rounded-pill text-center m-2 px-4 py-2 update_course">
+                                    <i class="material-symbols-outlined">done
+                                    </i>
+                                </button>
+
+                                {{-- Form Column 2 End --}}
+                            </div>
+
+
+                        </div>
+                        {{-- Fields End --}}
+
+                        {{-- Submit Button START --}}
+                        {{-- <a href="{{ url('/save') }}" class="btn btn-primary rounded-pill py-3 px-5 text-center">Register</a> --}}
+                        {{-- Submit Button END --}}
+
+
+                    </form>
                 @endforeach
             </div>
             {{-- VIEW FORMS div end --}}

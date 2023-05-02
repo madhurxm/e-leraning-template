@@ -14,9 +14,11 @@ use App\Http\Controllers\CoursesCrud;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', 'CoursesCrud@index2');
+
 Route::get('/404', function () {
     return view('pages/404');
 });
@@ -46,3 +48,5 @@ Route::get('/add-course', function () {
 });
 Route::get('/add-course', 'CoursesCrud@index');
 Route::post('/add-course', 'CoursesCrud@store')->name('add-course');
+Route::delete('/add-course/{course_id}', 'CoursesCrud@destroy');
+Route::post('/add-course/{course_id}', 'CoursesCrud@update');
