@@ -1,25 +1,314 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>eLEARNING - eLearning HTML Template</title>
+    <title>DarkPan - Bootstrap 5 Admin Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Favicon -->
-    <link href="{{ URL::asset('assets/img/favicon.ico') }}" rel="icon">
+    <link href="{{ URL::asset('assets/admin/img/favicon.ico') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="{{ url('https://fonts.googleapis.com') }}">
     <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}" crossorigin>
     <link
-        href="{{ url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap') }}"
+        href="{{ url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap') }}"
         rel="stylesheet">
-    <link rel="stylesheet"
-        href="{{ url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0') }}" />
 
     <!-- Icon Font Stylesheet -->
     <link
@@ -30,90 +319,104 @@
         rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{ URL::asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}"
+    <link href="{{ URL::asset('assets/admin/lib/owlcarousel/assets/owl.carousel.min.css') }}"
         rel="stylesheet">
+    <link
+        href="{{ URL::asset('assets/admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}"
+        rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/admin/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/admin/css/style.css') }}" rel="stylesheet">
 </head>
 
-<body style="background-color: rgba(0, 0, 0, 0.664);">
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <div class="row">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"
+                role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-    </div>
-    <!-- Spinner End -->
+        <!-- Spinner End -->
 
 
-    <!-- Navbar Start -->
-    {{-- <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0"> 
-        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
-                <a href="{{ url('/about') }}" class="nav-item nav-link">About</a>
-                <a href="{{ url('/courses') }}" class="nav-item nav-link">Courses</a>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="{{ url('/team') }}" class="dropdown-item">Our Team</a>
-                        <a href="{{ url('/testimonial') }}" class="dropdown-item">Testimonial</a>
-                        <a href="{{ url('/404') }}" class="dropdown-item ">404 Page</a>
-                        <a href="{{ url('/add-course') }}" class="dropdown-item active">Add Course</a>
+        <!-- Sidebar Start -->
+        
+        <div class="sidebar pe-4 pb-3 col-2">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="{{ URL::asset('assets/admin/index.html') }}"
+                    class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>E-Learning</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="" alt=""
+                            style="width: 40px; height: 40px;">
+
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Ashish</h6>
+                        <span>Admin</span>
                     </div>
                 </div>
-                <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact</a>
-            </div>
-            <a href="{{ url('/register') }}"
-                class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i
-                    class="fa fa-arrow-right ms-3"></i></a>
-        </div>
-    </nav> --}}
-    <!-- Navbar End -->
+                <div class="navbar-nav w-100">
+                    <a href="{{ URL::asset('assets/admin/index.html') }}"
+                        class="nav-item nav-link active"><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{ URL::asset('assets/admin/button.html') }}"
+                                class="dropdown-item">Buttons</a>
+                            <a href="{{ URL::asset('assets/admin/typography.html') }}"
+                                class="dropdown-item">Typography</a>
+                            <a href="{{ URL::asset('assets/admin/element.html') }}"
+                                class="dropdown-item">Other Elements</a>
+                        </div>
+                    </div>
+                    <a href="{{ URL::asset('assets/admin/widget.html') }}"
+                        class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="{{ URL::asset('assets/admin/form.html') }}"
+                        class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
 
-
-    <!-- Header Start -->
-    {{-- <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Popular Courses</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">
-                                Popular Courses
-                            </li>
-                        </ol>
-                    </nav>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{ URL::asset('assets/admin/signin.html') }}"
+                                class="dropdown-item">Sign In</a>
+                            <a href="{{ URL::asset('assets/admin/signup.html') }}"
+                                class="dropdown-item">Sign Up</a>
+                            <a href="{{ URL::asset('assets/admin/404.html') }}"
+                                class="dropdown-item">404 Error</a>
+                            <a href="{{ URL::asset('assets/admin/blank.html') }}"
+                                class="dropdown-item">Blank Page</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </nav>
         </div>
-    </div> --}}
+    
+    <!-- Sidebar End -->
 
-    <!-- Header End -->
 
-    <div class="alert alert-dark m-1 fadeInUp" hidden role="alert" id="massage"  style="position: fixed; z-index: 10;">
+    <!-- Content Start -->
+
+    <div class="alert alert-dark m-1 fadeInUp" hidden role="alert" id="massage"
+        style="position: fixed; z-index: 10;">
         Success.......!!
     </div>
 
     <!-- Content Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
+    <div class=" py-5 wow fadeInUp position-absolute" data-wow-delay="0.1s">
+        <div class="">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <h1 class="display-1 text-center">MANAGE COURSES</h1>
@@ -218,7 +521,8 @@
                                             </div>
                                         </div>
                                         <button type="button" name="" id=""
-                                            class="btn btn-danger rounded-pill text-center m-2 px-4 py-2 remove_create_form" title="Remove above form">
+                                            class="btn btn-danger rounded-pill text-center m-2 px-4 py-2 remove_create_form"
+                                            title="Remove above form">
                                             <i class="material-symbols-outlined">remove
                                             </i>
                                         </button>
@@ -293,11 +597,11 @@
                                                 Duration</label>
                                         </div>
                                         {{-- <div class="mb-3">
-                                <label for="" class="form-label">Choose Course</label>
-                                <input type="file" class="form-control" name=""
-                                    id="" placeholder="">
-
-                            </div> --}}
+                                    <label for="" class="form-label">Choose Course</label>
+                                    <input type="file" class="form-control" name=""
+                                        id="" placeholder="">
+    
+                                </div> --}}
                                         <div class="input-group mb-3">
                                             <div
                                                 class="form-floating form-floating-group flex-grow-1">
@@ -309,7 +613,8 @@
                                             </div>
                                         </div>
                                         <button type="button" name="" id=""
-                                            class="btn btn-danger rounded-pill text-center m-2 px-4 py-2 remove_create_form" title="Remove above form">
+                                            class="btn btn-danger rounded-pill text-center m-2 px-4 py-2 remove_create_form"
+                                            title="Remove above form">
                                             <i class="material-symbols-outlined">remove
                                             </i>
                                         </button>
@@ -320,7 +625,7 @@
 
                                     {{-- Submit Button START --}}
                                     {{-- <a href="{{ url('/save') }}"
-                            class="btn btn-primary rounded-pill py-3 px-5 text-center">Register</a> --}}
+                                class="btn btn-primary rounded-pill py-3 px-5 text-center">Register</a> --}}
                                     {{-- Submit Button END --}}
                                 </div>
 
@@ -403,7 +708,9 @@
                                 </div>
                                 <div class=" mb-3" img_id="{{ $val->course_id }}">
                                     <img src="{{ URL::asset('uploaded_images/' . $val->course_picture) }}"
-                                        abc="{{ $val->course_id }}" class="img-fluid rounded-top w-25 border border-dark" alt="stored image">
+                                        abc="{{ $val->course_id }}"
+                                        class="img-fluid rounded-top w-25 border border-dark"
+                                        alt="stored image">
                                 </div>
                             </div>
                             {{-- Form Column 1 End --}}
@@ -427,28 +734,30 @@
                                     <label for="course_duration" class="">Course
                                         Duration</label>
                                 </div>
-                                
+
                                 <div class="input-group mb-3">
-                                    <div
-                                        class="form-floating form-floating-group flex-grow-1">
+                                    <div class="form-floating form-floating-group flex-grow-1">
                                         <input type="file" class="form-control"
-                                            name="course_picture"
-                                            placeholder="course_picture">
+                                            name="course_picture" placeholder="course_picture">
                                         <label for="course_picture">Choose Course
                                             Picture</label>
                                     </div>
                                 </div>
                                 <div class=" mb-3">
-                                <button type="button" name="" abc="{{ $val->course_id }}"
-                                    class="btn btn-danger rounded-pill text-center m-2 px-4 py-2 delete_course" title="Delete this course">
-                                    <i class="material-symbols-outlined">delete
-                                    </i>
-                                </button>
-                                <button type="button" name="" abc="{{ $val->course_id }}"
-                                    class="btn btn-success rounded-pill text-center m-2 px-4 py-2 update_course" title="Update this course">
-                                    <i class="material-symbols-outlined">done
-                                    </i>
-                                </button>
+                                    <button type="button" name=""
+                                        abc="{{ $val->course_id }}"
+                                        class="btn btn-danger rounded-pill text-center m-2 px-4 py-2 delete_course"
+                                        title="Delete this course">
+                                        <i class="material-symbols-outlined">delete
+                                        </i>
+                                    </button>
+                                    <button type="button" name=""
+                                        abc="{{ $val->course_id }}"
+                                        class="btn btn-success rounded-pill text-center m-2 px-4 py-2 update_course"
+                                        title="Update this course">
+                                        <i class="material-symbols-outlined">done
+                                        </i>
+                                    </button>
                                 </div>
 
                                 {{-- Form Column 2 End --}}
@@ -474,128 +783,34 @@
     </div>
     <!-- Content End -->
 
-
-    <!-- Footer Start -->
-    {{-- <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
-        data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link">About Us</a>
-                    <a class="btn btn-link">Contact Us</a>
-                    <a class="btn btn-link">Privacy Policy</a>
-                    <a class="btn btn-link">Terms & Condition</a>
-                    <a class="btn btn-link">FAQs & Help</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New
-                        York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social"><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1"
-                                src="{{ URL::asset('assets/img/course-1.jpg') }}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1"
-                                src="{{ URL::asset('assets/img/course-2.jpg') }}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1"
-                                src="{{ URL::asset('assets/img/course-3.jpg') }}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1"
-                                src="{{ URL::asset('assets/img/course-2.jpg') }}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1"
-                                src="{{ URL::asset('assets/img/course-3.jpg') }}" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid bg-light p-1"
-                                src="{{ URL::asset('assets/img/course-1.jpg') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom">Your Site Name</a>, All
-                        Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom"
-                            href="{{ url('https://htmlcodex.com') }}">HTML
-                            Codex</a>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a>Home</a>
-                            <a>Cookies</a>
-                            <a>Help</a>
-                            <a>FQAs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Footer End -->
+    <!-- Content End -->
 
 
     <!-- Back to Top -->
-    <a class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+        </div>
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="{{ url('https://code.jquery.com/jquery-3.4.1.min.js') }}"></script>
     <script
         src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js') }}">
     </script>
+    <script src="{{ URL::asset('assets/admin/lib/chart/chart.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/admin/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/admin/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/admin/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/admin/lib/tempusdominus/js/moment.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/admin/lib/tempusdominus/js/moment-timezone.min.js') }}">
+    </script>
     <script
-        src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js') }}"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous "></script>
-    <script src="{{ URL::asset('assets/lib/wow/wow.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
+        src="{{ URL::asset('assets/admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
 
     <!-- Template Javascript -->
-    <script src="{{ URL::asset('assets/js/main.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/add_course_page.js') }}"></script>
-
+    <script src="{{ URL::asset('assets/admin/js/main.js') }}"></script>
+    <script src="{{ URL::asset('assets/admin/js/add_course_page.js') }}"></script>
 </body>
 
 </html>

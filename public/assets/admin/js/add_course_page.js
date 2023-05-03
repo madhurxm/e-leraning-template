@@ -21,7 +21,7 @@ $(document).on("click", ".delete_course", function () {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf_token"]').attr("content"),
         },
-        url: "/add-course/" + del_id,
+        url: "/admin/course/" + del_id,
         data: { course_id: del_id },
         success: function (response) {
             if (response == "1") {
@@ -46,20 +46,42 @@ $(document).on("click", ".update_course", function (e) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf_token"]').attr("content"),
         },
-        url: "/add-course/" + upd_id,
+        url: "/admin/course" + upd_id,
         data: formData,
         cache: false,
         contentType: false,
         processData: false,
         async: false,
         success: function (response) {
+            if (response == '1') {
+    
+
+                $("#massage").removeAttr("hidden");
+                $("#massage").css({ 'display' : '' });
+                // alert(upi_id);
+            $("#massage").fadeOut("slow", function () {
+                // $('#add_course_div').html($('#add_course_div').data('old-state'));
+                
+                // alert(upi_id);
+                
+                // alert(upd_id);
+            });
+            jQuery("[img_id="+upd_id+"]").load(location.href + " [img_id="+upd_id+"]");
+            
+            } else {
+                $("#massage").attr("hidden","true");
+                
+            }
+            
             // alert(response);
             // if (response == '1') {
             // $(btn).load(location.href + btn);
             // }
         },
     });
-    return false;
+    
+
+    // return false;
 });
 
 $("#load_another_form").click(function () {
@@ -89,17 +111,41 @@ $("#submit_create_course_form").on("click", function (e) {
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf_token"]').attr("content"),
             },
-            url: "/add-course",
+            url: "/admin/course",
             data: formData,
             cache: false,
             contentType: false,
             processData: false,
             async: false,
             success: function (response) {
-                i++;
+                if (response == "1") {
+                    i++;
+                    // jQuery("#massage").removeAttr("hidden");
+                    // $("#massage").fadeOut("slow", function () {
+                    //     // jQuery("#massage").attr("hidden", "true");
+                    // });
+                } else {
+                    // jQuery("#massage").attr("hidden", "true");
+                }
             },
         });
     });
-    if (i == form_count) alert("Courses Saved");
-    else alert("Courses not saved");
+    if (i == form_count) {
+        jQuery("#massage").removeAttr("hidden");
+        $("#massage").fadeOut(5000, function () {
+            // $('#add_course_div').html($('#add_course_div').data('old-state'));
+            
+            
+            // jQuery("#massage").attr("hidden", "true");
+        });
+        for (var ia = 0, len = form_count; ia <= len; ia++) {
+            jQuery("form")[ia].reset();
+        };
+        
+        $("#add_course_div").attr("hidden","true");
+        // $("#add_course_div").load(location.href+" #add_course_div");
+         
+    } else {
+        jQuery("#massage").attr("hidden", "true");
+    }
 });

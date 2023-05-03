@@ -351,7 +351,7 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small>(123)</small>
                             </div>
-                            <h5 class="mb-4">${{ $val->course_title }}</h5>
+                            <h5 class="mb-4">{{ $val->course_title }}</h5>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i

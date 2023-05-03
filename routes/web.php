@@ -43,10 +43,16 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('pages/login');
 });
+Route::get('/admin', function () {
+    return view('/admin/admin-home');
+});
+Route::get('/admin/course', function () {
+    return view('/admin/admin_course_master');
+});
 // Route::get('/add-course', function () {
 //     return view('pages/add_course');
 // });
-Route::get('/add-course', 'CoursesCrud@index');
-Route::post('/add-course', 'CoursesCrud@store')->name('add-course');
-Route::delete('/add-course/{course_id}', 'CoursesCrud@destroy');
-Route::post('/add-course/{course_id}', 'CoursesCrud@update');
+Route::get('/admin/course', 'CoursesCrud@index');
+Route::post('/admin/course', 'CoursesCrud@store')->name('add-course');
+Route::delete('/admin/course/{course_id}', 'CoursesCrud@destroy');
+Route::post('/admin/course/{course_id}', 'CoursesCrud@update');
