@@ -49,7 +49,7 @@
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
+        <div class="sidebar pe-4 pb-3 ">
             <nav class="navbar bg-secondary">
                 <a href="{{URL::asset('/')}}" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>eLEARNING</h3>
@@ -61,19 +61,19 @@
 
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Ashish</h6>
+                        <h6 class="mb-0">ALEX</h6>
                         <span>Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{url('/admin')}}" class="nav-item nav-link active"><i
+                    <a href="{{url('/admin')}}" class="nav-item nav-link "><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle"
-                            data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                            data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Master</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{url('/admin/course')}}" class="dropdown-item">Courses</a>
-                            <a href="{{URL::asset('assets/admin/typography.html')}}" class="dropdown-item">Typography</a>
+                            <a href="{{url('/admin/instructor')}}" class="dropdown-item">Instructor</a>
                             <a href="{{URL::asset('assets/admin/element.html')}}" class="dropdown-item">Other Elements</a>
                         </div>
                     </div>

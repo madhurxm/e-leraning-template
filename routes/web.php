@@ -59,3 +59,6 @@ Route::post('/admin/course/{course_id}', 'CoursesCrud@update');
 Route::get('/admin/instructor', function () {
     return view('admin/admin_instructor_master');
 });
+Route::get('/admin/instructor/all', function () {
+    return view('admin/admin_instructor_master_view_all',);
+});

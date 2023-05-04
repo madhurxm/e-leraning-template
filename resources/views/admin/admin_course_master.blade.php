@@ -82,12 +82,11 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"><i
-                                    class="fa fa-laptop me-2"></i>Elements</a>
+                                    class="fa fa-laptop me-2"></i>Master</a>
                             <div class="dropdown-menu bg-transparent border-0">
                                 <a href="{{ url('/admin/course') }}"
                                     class="dropdown-item">Courses</a>
-                                <a href="{{ URL::asset('assets/admin/typography.html') }}"
-                                    class="dropdown-item">Typography</a>
+                                    <a href="{{url('/admin/instructor')}}" class="dropdown-item">Instructor</a>
                                 <a href="{{ URL::asset('assets/admin/element.html') }}"
                                     class="dropdown-item">Other Elements</a>
                             </div>
@@ -122,12 +121,12 @@
             <!-- Content Start -->
 
             <div class="alert alert-dark m-1 fadeInUp" hidden role="alert" id="massage"
-                style="position: fixed; z-index: 10;">
+                style="position: fixed; z-index: 1000000;">
                 Success.......!!
             </div>
 
             <!-- Content Start -->
-            <div class="content w-auto" >
+            <div class="content" >
                 <div class="container-md py-3 wow fadeInUp position-absolute"
                     data-wow-delay="0.1s">
                     <div class="container">
@@ -146,7 +145,7 @@
                         <div class="row justify-content-start">
 
 
-                            <nav class=" navbar navbar-expand-sm bg-dark navbar-dark">
+                            <nav class=" navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-5">
                                 <div class="container-fluid">
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
@@ -195,7 +194,7 @@
 
                         {{-- ADD COURSE FORMS START --}}
 
-                        <div class="row mb-4" id="add_course_div" hidden>
+                        <div class="row my-5" id="add_course_div" hidden>
                             <div>
                                 <div class="col-lg-12 text-center">
 
@@ -433,7 +432,7 @@
 
 
                         {{-- VIEW FORMS div start --}}
-                        <div id="edit_course_div" hidden>
+                        <div id="edit_course_div" hidden class="my-5 row">
 
                             <div class="table-responsive">
                                 <table class="table table-primary">
