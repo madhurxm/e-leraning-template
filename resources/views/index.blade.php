@@ -63,13 +63,14 @@
                 <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
                 <a href="{{ url('/about') }}" class="nav-item nav-link">About</a>
                 <a href="{{ url('/courses') }}" class="nav-item nav-link">Courses</a>
+                <a href="{{ url('/admin') }}" class="nav-item nav-link">ADMIN</a>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="{{ url('/team') }}" class="dropdown-item">Our Team</a>
                         <a href="{{ url('/testimonial') }}" class="dropdown-item">Testimonial</a>
                         <a href="{{ url('/404') }}" class="dropdown-item">404 Page</a>
-                        <a href="{{ url('/add-course') }}" class="dropdown-item">Add Course</a>
+                        
                     </div>
                 </div>
                 <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact</a>

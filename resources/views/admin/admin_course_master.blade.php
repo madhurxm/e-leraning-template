@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>ADMIN - Courses</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -26,10 +26,13 @@
     <link
         href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css') }}"
         rel="stylesheet">
-        <link href="{{ url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0') }}"  rel="stylesheet"/>
+    <link
+        href="{{ url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0') }}"
+        rel="stylesheet" />
 
     <!-- Libraries Stylesheet -->
-    <link href="{{ URL::asset('assets/admin/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/admin/lib/owlcarousel/assets/owl.carousel.min.css') }}"
+        rel="stylesheet">
     <link
         href="{{ URL::asset('assets/admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}"
         rel="stylesheet" />
@@ -41,12 +44,12 @@
     <link href="{{ URL::asset('assets/admin/css/style.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body class="bg-white text-white">
     <div class="container-fluid position-relative d-flex p-0">
         <div class="row">
             <!-- Spinner Start -->
             <div id="spinner"
-                class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+                class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
                 <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"
                     role="status">
                     <span class="sr-only">Loading...</span>
@@ -58,10 +61,9 @@
             <!-- Sidebar Start -->
 
             <div class="sidebar pe-4 pb-3 col-2">
-                <nav class="navbar bg-secondary navbar-dark">
-                    <a href="{{ URL::asset('assets/admin/index.html') }}"
-                        class="navbar-brand mx-4 mb-3">
-                        <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>E-Learning</h3>
+                <nav class="navbar bg-secondary ">
+                    <a href="{{ URL::asset('/') }}" class="navbar-brand mx-4 mb-3">
+                        <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>eLEARNING</h3>
                     </a>
                     <div class="d-flex align-items-center ms-4 mb-4">
                         <div class="position-relative">
@@ -75,15 +77,15 @@
                         </div>
                     </div>
                     <div class="navbar-nav w-100">
-                        <a href="{{url('/admin')}}"
-                            class="nav-item nav-link active"><i
+                        <a href="{{ url('/admin') }}" class="nav-item nav-link active"><i
                                 class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"><i
                                     class="fa fa-laptop me-2"></i>Elements</a>
                             <div class="dropdown-menu bg-transparent border-0">
-                                <a href="{{url('/admin/course')}}" class="dropdown-item">Courses</a>
+                                <a href="{{ url('/admin/course') }}"
+                                    class="dropdown-item">Courses</a>
                                 <a href="{{ URL::asset('assets/admin/typography.html') }}"
                                     class="dropdown-item">Typography</a>
                                 <a href="{{ URL::asset('assets/admin/element.html') }}"
@@ -125,42 +127,68 @@
             </div>
 
             <!-- Content Start -->
-            <div class="content">
-                <div class="container-lg  py-5 wow fadeInUp position-absolute"
+            <div class="content w-auto" >
+                <div class="container-md py-3 wow fadeInUp position-absolute"
                     data-wow-delay="0.1s">
                     <div class="container">
-                        <div class="row justify-content-center">
+                        {{-- <div class="row justify-content-center">
                             <div class="col-lg-12">
-                                <h1 class="display-1 text-center">MANAGE COURSES</h1>
-                                <h1 class="mb-4 text-center">Add, Modify or Delete courses from
-                                    below</h1>
-                                <p class="mb-4 text-center">Courses will be displayed in order,
+                                <h4 class="display-5">MANAGE COURSES</h4>
+                                <h5 class="mb-2">Add, Modify or Delete courses from
+                                    below</h5>
+                                <p class="mb-2 text-white">Courses will be displayed in order,
                                     they are added
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- ADD and EDIT BUTTON GROUP START --}}
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-start">
+
+
+                            <nav class=" navbar navbar-expand-sm bg-dark navbar-dark">
+                                <div class="container-fluid">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="add_button">ADD
+                                                COURSES
+
+                                                {{-- <button type="button" name="" id="add_button"
+                                                class="btn btn-info py-1 px-1 text-center">ADD
+                                                COURSES</button> --}}
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" >
+                                            <a class="nav-link" id="edit_button">EDIT
+                                                COURSES
+                                                {{-- <button type="button" name="" id="edit_button"
+                                                class="btn btn-info py-1 px-1 text-center">EDIT
+                                                COURSES</button> --}}
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </nav>
 
                             {{-- ADD Button Start --}}
-                            <div class="col-lg-2 text-center">
+                            {{-- <div class="col-lg-2 text-center">
                                 <div class="d-grid gap-2">
                                     <button type="button" name="" id="add_button"
-                                        class="btn btn-info rounded-pill py-3 px-5 text-center">ADD
+                                        class="btn btn-info rounded-pill py-1 px-1 text-center">ADD
                                         COURSES</button>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- ADD Button End --}}
 
                             {{-- EDIT Button Start --}}
-                            <div class="col-lg-2 text-center">
+                            {{-- <div class="col-lg-2 text-center">
                                 <div class="d-grid gap-2">
                                     <button type="button" name="" id="edit_button"
-                                        class="btn btn-info rounded-pill py-3 px-5 text-center">EDIT
+                                        class="btn btn-info rounded-pill py-1 px-1 text-center">EDIT
                                         COURSES</button>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- EDIT Button End --}}
                         </div>
                         {{-- ADD and EDIT BUTTON GROUP END --}}
@@ -407,11 +435,11 @@
                         {{-- VIEW FORMS div start --}}
                         <div id="edit_course_div" hidden>
 
-                            <<div class="table-responsive">
+                            <div class="table-responsive">
                                 <table class="table table-primary">
                                     <thead>
                                         <tr>
-                                            <th>course_title</th>t
+                                            <th>course_title</th>
                                             <th>course_price</th>
                                             <th>Registered Students</th>
                                             <th>Saved Image</th>
@@ -465,7 +493,8 @@
                                                         <img src="{{ URL::asset('uploaded_images/' . $val->course_picture) }}"
                                                             abc="{{ $val->course_id }}"
                                                             class="img-fluid rounded-top border border-dark"
-                                                            alt="stored image" style="width: 200px; height:80px;">
+                                                            alt="stored image"
+                                                            style="width: 200px; height:80px;">
                                                     </div>
                                                 </td>
                                                 <td class="w-auto">
