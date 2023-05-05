@@ -17,7 +17,7 @@ class CreateInstructorMasterTable extends Migration
             $table->id('instructor_id');
             $table->timestamps();
             $table->string('instructor_name');
-            $table->string('instructor_profile');
+            $table->string('instructor_profile')->nullable();
             $table->string('instructor_pfp');
         });
     }

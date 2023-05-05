@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class instructor_master extends Model
+class Instructor_Master extends Model
 {
     //
+   protected $table = 'instructor_master';
+   protected $primary_key = 'instructor_id';
 }
