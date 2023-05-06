@@ -58,9 +58,10 @@
                         </div>
                         @if ($edit->instructor_pfp != null)
                             <div class="mb-3">
+                                <p>Uploaded Picture</p>
                                 <img src="{{ URL::asset('uploaded_images/Instructor_PFP/' . $edit->instructor_pfp) }}"
-                                    class="img-fluid rounded-top" alt=""
-                                    style="width: 75px; height:75px">
+                                    class="img-fluid rounded " alt=""
+                                    style="width: 75px; height:75px; border:solid 1px grey ">
                             </div>
                         @endif
 

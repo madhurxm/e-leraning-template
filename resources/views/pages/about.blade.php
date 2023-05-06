@@ -234,7 +234,7 @@
                         <div class="position-relative d-flex justify-content-center"
                             style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href="https://{{ $val->instructor_profile }}"><i
+                                <a class="btn btn-sm-square btn-primary mx-1" href="https://{{ $val->instructor_profile }}" target="_blank"><i
                                         class="fab fa-facebook"></i></a>
                             </div>
                         </div>
