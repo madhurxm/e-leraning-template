@@ -61,3 +61,6 @@ Route::get('/admin/instructor/all', 'InstructorCrud@instructor_table')->name('in
 Route::get('/admin/instructor/all/{instructor_id}', 'InstructorCrud@delete')->name('instructor_table_deleteBtn');
 Route::get('/admin/instructor/edit/{instructor_id}', 'InstructorCrud@edit')->name('instructor_table_editBtn');
 Route::post('/admin/instructor/edit/{instructor_id}', 'InstructorCrud@update');
+Route::get('/user-registration',function(){
+    return view('user_registration');
+});
